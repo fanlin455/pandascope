@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="PandaVista — visual, bilingual, browser-based data analysis inspired by pandas." />
+  <title>PandaVista · 数据工坊</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Primary navigation">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div><strong>PandaVista</strong><small data-i18n="brandTag">数据工坊</small></div>
+      </div>
+
+      <nav class="nav-list">
+        <button class="nav-item active" data-view="overview"><span class="nav-icon">◫</span><span data-i18n="navOverview">总览</span></button>
+        <button class="nav-item" data-view="table"><span class="nav-icon">▦</span><span data-i18n="navTable">数据表</span></button>
+        <button class="nav-item" data-view="transform"><span class="nav-icon">⌘</span><span data-i18n="navTransform">数据处理</span></button>
+        <button class="nav-item" data-view="statistics"><span class="nav-icon">∑</span><span data-i18n="navStats">统计分析</span></button>
+        <button class="nav-item" data-view="charts"><span class="nav-icon">⌁</span><span data-i18n="navCharts">图表工坊</span></button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="privacy-note"><span>●</span><div><b data-i18n="localTitle">本地计算</b><small data-i18n="localNote">数据不会上传至服务器</small></div></div>
+        <button class="keyboard-hint" id="shortcutsBtn"><kbd>?</kbd><span data-i18n="shortcuts">快捷键</span></button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="dataset-title">
+          <div class="status-dot"></div>
+          <div><h1 id="datasetName">零售经营示例</h1><p id="datasetMeta">18 行 · 9 列 · 已自动识别字段类型</p></div>
+        </div>
+        <div class="top-actions">
+          <button class="btn ghost" id="undoBtn" title="Undo" disabled><span>↶</span><span data-i18n="undo">撤销</span></button>
+          <button class="btn ghost" id="resetBtn"><span>↺</span><span data-i18n="reset">重置</span></button>
+          <button class="btn ghost" id="langBtn" aria-label="Switch language">EN</button>
+          <div class="dropdown-wrap">
+            <button class="btn primary" id="importBtn"><span>＋</span><span data-i18n="import">导入数据</span><span class="caret">⌄</span></button>
+            <div class="dropdown" id="importMenu">
+              <label class="menu-item"><span>⇧</span><div><b data-i18n="uploadFile">上传文件</b><small>CSV · TSV · JSON · XLSX</small></div><input id="fileInput" type="file" accept=".csv,.tsv,.txt,.json,.xlsx,.xls" hidden /></label>
+              <button class="menu-item" id="pasteDataBtn"><span>⌘</span><div><b data-i18n="pasteData">粘贴数据</b><small data-i18n="pasteDataSub">表格文本或 JSON</small></div></button>
+              <button class="menu-item" id="loadSampleBtn"><span>✦</span><div><b data-i18n="sampleData">加载示例</b><small data-i18n="sampleDataSub">零售经营数据</small></div></button>
+            </div>
+          </div>
+          <button class="btn dark" id="exportBtn"><span>⇩</span><span data-i18n="export">导出</span></button>
+        </div>
+      </header>
+
+      <section class="view active" id="view-overview">
+        <div class="page-head"><div><span class="eyebrow" data-i18n="overviewEyebrow">DATA PULSE · 数据脉搏</span><h2 data-i18n="overviewTitle">一眼读懂你的数据</h2><p data-i18n="overviewSub">自动概览数据规模、质量、分布与关键关系。</p></div><button class="btn outline" data-go="charts"><span>✦</span><span data-i18n="createChart">创建图表</span></button></div>
+
+        <div class="metric-grid">
+          <article class="metric-card coral"><div class="metric-icon">↕</div><div><span data-i18n="rows">数据行</span><strong id="metricRows">0</strong><small id="metricRowsSub">完整记录</small></div></article>
+          <article class="metric-card blue"><div class="metric-icon">↔</div><div><span data-i18n="columns">字段列</span><strong id="metricCols">0</strong><small id="metricColsSub">数值 / 分类 / 日期</small></div></article>
+          <article class="metric-card gold"><div class="metric-icon">◇</div><div><span data-i18n="missing">缺失值</span><strong id="metricMissing">0</strong><small id="metricMissingSub">数据完整</small></div></article>
+          <article class="metric-card mint"><div class="metric-icon">≡</div><div><span data-i18n="duplicates">重复行</span><strong id="metricDupes">0</strong><small id="metricDupesSub">暂无重复</small></div></article>
+        </div>
+
+        <div class="overview-grid">
+          <article class="panel span-2">
+            <div class="panel-head"><div><h3 data-i18n="numericProfile">数值走势速览</h3><p id="profileSubtitle">按日期观察 revenue 与 cost</p></div><select id="overviewMetric" class="control compact"></select></div>
+            <div id="overviewChart" class="viz tall"></div>
+          </article>
+          <article class="panel quality-card">
+            <div class="panel-head"><div><h3 data-i18n="quality">数据质量</h3><p data-i18n="qualitySub">综合完整性与唯一性</p></div><span class="pill success" data-i18n="auto">自动</span></div>
+            <div class="quality-wrap"><div class="quality-ring" id="qualityRing"><div><strong id="qualityScore">100</strong><span>/ 100</span></div></div></div>
+            <div class="quality-legend"><div><span class="dot mint-bg"></span><span data-i18n="completeRate">完整率</span><b id="completeness">100%</b></div><div><span class="dot blue-bg"></span><span data-i18n="uniqueRate">唯一率</span><b id="uniqueness">100%</b></div></div>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><div><h3 data-i18n="fieldTypes">字段类型</h3><p data-i18n="fieldTypesSub">自动推断的数据结构</p></div></div>
+            <div id="typeBreakdown" class="type-breakdown"></div>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><div><h3 data-i18n="topCategories">主要类别</h3><p id="categorySubtitle">按 category 计数</p></div><select id="overviewCategory" class="control compact"></select></div>
+            <div id="categoryBars" class="category-bars"></div>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><div><h3 data-i18n="correlationClues">相关线索</h3><p data-i18n="correlationCluesSub">最强数值关系</p></div><button class="text-btn" data-go="statistics" data-i18n="viewAll">查看全部</button></div>
+            <div id="correlationList" class="correlation-list"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" id="view-table">
+        <div class="page-head"><div><span class="eyebrow" data-i18n="tableEyebrow">DATAFRAME · 数据框</span><h2 data-i18n="tableTitle">查看与编辑数据</h2><p data-i18n="tableSub">搜索、排序、分页，双击单元格可直接修改。</p></div><div class="head-actions"><button class="btn outline" id="addRowBtn">＋ <span data-i18n="addRow">新增行</span></button><button class="btn outline" id="copyTableBtn">⧉ <span data-i18n="copy">复制</span></button></div></div>
+        <article class="panel table-panel">
+          <div class="table-toolbar">
+            <label class="search-box"><span>⌕</span><input id="tableSearch" type="search" data-i18n-placeholder="searchRows" placeholder="搜索所有字段…" /></label>
+            <div class="table-tools"><span id="selectionInfo"></span><label><span data-i18n="pageSize">每页</span><select id="pageSize" class="control compact"><option>10</option><option selected>20</option><option>50</option><option>100</option></select></label></div>
+          </div>
+          <div class="table-scroll"><table id="dataTable"><thead></thead><tbody></tbody></table></div>
+          <div class="pagination"><button id="prevPage" class="icon-btn">←</button><span id="pageInfo"></span><button id="nextPage" class="icon-btn">→</button></div>
+        </article>
+      </section>
+
+      <section class="view" id="view-transform">
+        <div class="page-head"><div><span class="eyebrow" data-i18n="transformEyebrow">WRANGLE · 数据整理</span><h2 data-i18n="transformTitle">像 Pandas 一样处理数据</h2><p data-i18n="transformSub">把常用代码操作变成可见、可撤销的交互步骤。</p></div><div class="history-count"><span>◴</span><span id="historyLabel">0 个操作</span></div></div>
+        <div class="transform-layout">
+          <div class="operation-grid">
+            <article class="operation-card featured">
+              <div class="op-title"><span class="op-icon coral-bg">⌕</span><div><h3 data-i18n="filterRows">筛选行</h3><code>df.query()</code></div></div>
+              <div class="form-row triple"><select id="filterColumn" class="control"></select><select id="filterOperator" class="control"><option value="contains">包含</option><option value="eq">=</option><option value="neq">≠</option><option value="gt">&gt;</option><option value="gte">≥</option><option value="lt">&lt;</option><option value="lte">≤</option><option value="empty">为空</option><option value="notempty">非空</option></select><input id="filterValue" class="control" data-i18n-placeholder="value" placeholder="值" /></div>
+              <button id="applyFilter" class="btn primary wide" data-i18n="applyFilter">应用筛选</button>
+            </article>
+
+            <article class="operation-card">
+              <div class="op-title"><span class="op-icon blue-bg">✣</span><div><h3 data-i18n="missingValues">处理缺失值</h3><code>dropna() / fillna()</code></div></div>
+              <div class="form-row"><select id="missingColumn" class="control"></select><select id="missingAction" class="control"><option value="drop">删除缺失行</option><option value="mean">填充均值</option><option value="median">填充中位数</option><option value="mode">填充众数</option><option value="zero">填充 0</option><option value="custom">自定义填充</option></select></div>
+              <input id="missingCustom" class="control hidden" data-i18n-placeholder="fillValue" placeholder="填充值" />
+              <button id="applyMissing" class="btn soft wide" data-i18n="run">执行</button>
+            </article>
+
+            <article class="operation-card">
+              <div class="op-title"><span class="op-icon gold-bg">#</span><div><h3 data-i18n="typeConvert">转换类型</h3><code>astype()</code></div></div>
+              <div class="form-row"><select id="typeColumn" class="control"></select><select id="targetType" class="control"><option value="number">Number</option><option value="string">String</option><option value="date">Date</option><option value="boolean">Boolean</option></select></div>
+              <button id="applyType" class="btn soft wide" data-i18n="convert">转换</button>
+            </article>
+
+            <article class="operation-card">
+              <div class="op-title"><span class="op-icon mint-bg">ƒ</span><div><h3 data-i18n="computedColumn">计算列</h3><code>df.assign()</code></div></div>
+              <div class="form-row"><input id="formulaName" class="control" data-i18n-placeholder="newColumnName" placeholder="新列名" /><input id="formulaExpr" class="control" data-i18n-placeholder="formulaExample" placeholder="例如：(revenue-cost)/revenue" /></div>
+              <button id="applyFormula" class="btn soft wide" data-i18n="create">创建</button>
+            </article>
+
+            <article class="operation-card">
+              <div class="op-title"><span class="op-icon violet-bg">↔</span><div><h3 data-i18n="renameColumn">重命名列</h3><code>rename()</code></div></div>
+              <div class="form-row"><select id="renameColumn" class="control"></select><input id="renameValue" class="control" data-i18n-placeholder="newName" placeholder="新名称" /></div>
+              <button id="applyRename" class="btn soft wide" data-i18n="rename">重命名</button>
+            </article>
+
+            <article class="operation-card">
+              <div class="op-title"><span class="op-icon rose-bg">≠</span><div><h3 data-i18n="duplicatesOp">移除重复</h3><code>drop_duplicates()</code></div></div>
+              <p class="op-description" data-i18n="duplicatesDesc">删除所有字段完全一致的重复记录。</p>
+              <button id="applyDedupe" class="btn soft wide" data-i18n="removeDuplicates">移除重复行</button>
+            </article>
+
+            <article class="operation-card wide-card">
+              <div class="op-title"><span class="op-icon ink-bg">Σ</span><div><h3 data-i18n="groupAggregate">分组聚合</h3><code>groupby().agg()</code></div></div>
+              <div class="form-row four"><select id="groupColumn" class="control"></select><select id="aggColumn" class="control"></select><select id="aggMethod" class="control"><option value="sum">sum</option><option value="mean">mean</option><option value="median">median</option><option value="min">min</option><option value="max">max</option><option value="count">count</option></select><button id="applyGroup" class="btn dark" data-i18n="aggregate">聚合</button></div>
+              <div id="groupPreview" class="inline-result empty-result" data-i18n="groupHint">选择字段，结果将在这里预览</div>
+            </article>
+          </div>
+          <aside class="history-panel panel"><div class="panel-head"><div><h3 data-i18n="operationHistory">操作历史</h3><p data-i18n="historySub">每一步都可撤销</p></div></div><div id="historyList" class="history-list"></div></aside>
+        </div>
+      </section>
+
+      <section class="view" id="view-statistics">
+        <div class="page-head"><div><span class="eyebrow" data-i18n="statsEyebrow">DESCRIBE · 统计描述</span><h2 data-i18n="statsTitle">发现分布与关系</h2><p data-i18n="statsSub">从描述统计到相关矩阵，用图形捕捉异常与关联。</p></div><select id="statsColumn" class="control"></select></div>
+        <div class="stats-grid">
+          <article class="panel span-2"><div class="panel-head"><div><h3 data-i18n="describeTable">描述统计</h3><p><code>df.describe(include='all')</code></p></div></div><div class="table-scroll stats-table-wrap"><table id="describeTable"><thead></thead><tbody></tbody></table></div></article>
+          <article class="panel"><div class="panel-head"><div><h3 data-i18n="distribution">分布直方图</h3><p id="distributionSub"></p></div></div><div id="histogramChart" class="viz"></div></article>
+          <article class="panel"><div class="panel-head"><div><h3 data-i18n="boxPlot">箱线图</h3><p data-i18n="outlierHint">四分位范围与异常值</p></div></div><div id="boxPlotChart" class="viz"></div></article>
+          <article class="panel span-2"><div class="panel-head"><div><h3 data-i18n="correlationMatrix">相关矩阵</h3><p><code>df.corr(numeric_only=True)</code></p></div><span class="legend-gradient">−1 <i></i> +1</span></div><div id="correlationHeatmap" class="heatmap-wrap"></div></article>
+        </div>
+      </section>
+
+      <section class="view" id="view-charts">
+        <div class="page-head"><div><span class="eyebrow" data-i18n="chartsEyebrow">VISUALIZE · 可视化</span><h2 data-i18n="chartsTitle">把数据变成故事</h2><p data-i18n="chartsSub">选择字段和图形，实时探索趋势、比较与关系。</p></div><button id="downloadChart" class="btn outline">⇩ <span data-i18n="downloadSvg">下载 SVG</span></button></div>
+        <div class="chart-studio">
+          <aside class="chart-controls panel">
+            <div class="control-section"><label data-i18n="chartType">图表类型</label><div class="chart-type-grid">
+              <button class="chart-type active" data-chart="bar"><span>▥</span><small data-i18n="bar">柱状</small></button>
+              <button class="chart-type" data-chart="line"><span>⌁</span><small data-i18n="line">折线</small></button>
+              <button class="chart-type" data-chart="scatter"><span>∷</span><small data-i18n="scatter">散点</small></button>
+              <button class="chart-type" data-chart="pie"><span>◔</span><small data-i18n="pie">饼图</small></button>
+              <button class="chart-type" data-chart="area"><span>◒</span><small data-i18n="area">面积</small></button>
+              <button class="chart-type" data-chart="histogram"><span>▥</span><small data-i18n="histogram">直方图</small></button>
+            </div></div>
+            <div class="control-section"><label for="chartX" data-i18n="xAxis">X 轴 / 类别</label><select id="chartX" class="control"></select></div>
+            <div class="control-section"><label for="chartY" data-i18n="yAxis">Y 轴 / 数值</label><select id="chartY" class="control"></select></div>
+            <div class="control-section"><label for="chartAgg" data-i18n="aggregation">聚合方式</label><select id="chartAgg" class="control"><option value="sum">Sum · 求和</option><option value="mean">Mean · 平均</option><option value="count">Count · 计数</option><option value="min">Min · 最小</option><option value="max">Max · 最大</option></select></div>
+            <div class="control-section"><label for="chartColor" data-i18n="colorTheme">配色主题</label><select id="chartColor" class="control"><option value="sunset">Sunset · 暮色</option><option value="ocean">Ocean · 海洋</option><option value="forest">Forest · 森林</option><option value="mono">Ink · 墨色</option></select></div>
+            <button id="smartChart" class="btn primary wide">✦ <span data-i18n="smartRecommend">智能推荐</span></button>
+          </aside>
+          <article class="chart-canvas panel"><div class="panel-head"><div><input id="chartTitle" class="chart-title-input" value="经营数据概览" aria-label="Chart title" /><p id="chartSubtitle">按 category 汇总 revenue</p></div><span class="pill" id="chartBadge">BAR</span></div><div id="studioChart" class="viz studio-viz"></div><div id="chartInsight" class="chart-insight"><span>✦</span><p></p></div></article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast-wrap" id="toastWrap" aria-live="polite"></div>
+
+  <dialog id="pasteDialog" class="modal">
+    <form method="dialog"><div class="modal-head"><div><span class="eyebrow" data-i18n="quickImport">QUICK IMPORT · 快速导入</span><h3 data-i18n="pasteTitle">粘贴表格或 JSON</h3></div><button class="icon-btn" value="cancel">×</button></div><p data-i18n="pasteHint">支持从 Excel 复制的制表符数据、CSV 和 JSON 数组。</p><textarea id="pasteInput" rows="12" placeholder="date,category,revenue&#10;2026-01-01,Office,3200"></textarea><div class="modal-actions"><button class="btn ghost" value="cancel" data-i18n="cancel">取消</button><button type="button" id="confirmPaste" class="btn primary" data-i18n="importNow">立即导入</button></div></form>
+  </dialog>
+
+  <dialog id="exportDialog" class="modal compact-modal">
+    <form method="dialog"><div class="modal-head"><div><span class="eyebrow" data-i18n="exportData">EXPORT · 导出数据</span><h3 data-i18n="exportTitle">选择导出格式</h3></div><button class="icon-btn" value="cancel">×</button></div><div class="export-grid"><button type="button" data-export="csv"><span>CSV</span><small data-i18n="csvDesc">通用表格格式</small></button><button type="button" data-export="json"><span>JSON</span><small data-i18n="jsonDesc">结构化数据</small></button></div></form>
+  </dialog>
+
+  <dialog id="shortcutDialog" class="modal compact-modal">
+    <form method="dialog"><div class="modal-head"><h3 data-i18n="shortcutTitle">键盘快捷键</h3><button class="icon-btn" value="cancel">×</button></div><div class="shortcut-list"><div><kbd>1—5</kbd><span data-i18n="switchView">切换分析视图</span></div><div><kbd>Ctrl</kbd> + <kbd>Z</kbd><span data-i18n="undoAction">撤销操作</span></div><div><kbd>Ctrl</kbd> + <kbd>O</kbd><span data-i18n="openFile">打开文件</span></div><div><kbd>/</kbd><span data-i18n="focusSearch">聚焦搜索</span></div></div></form>
+  </dialog>
+</body>
+</html>
