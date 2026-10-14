@@ -10,7 +10,37 @@
   <script defer src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <script defer src="./app.js"></script>
 </head>
-<body>
+<body class="cover-open">
+  <section class="cover" id="cover" aria-label="PandaVista introduction">
+    <div class="cover-orb orb-one"></div><div class="cover-orb orb-two"></div>
+    <header class="cover-nav">
+      <div class="cover-brand"><div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div><div><strong>PandaVista</strong><small data-i18n="coverBrandTag">VISUAL DATA STUDIO</small></div></div>
+      <button class="cover-lang" id="coverLangBtn" aria-label="Switch cover language">EN</button>
+    </header>
+    <div class="cover-grid">
+      <div class="cover-copy">
+        <span class="cover-kicker"><i></i><span data-i18n="coverKicker">PANDAS · 但更直观</span></span>
+        <h1><span data-i18n="coverTitleA">让数据开口，</span><em data-i18n="coverTitleB">无需写代码。</em></h1>
+        <p data-i18n="coverDescription">导入任何表格，用图形完成清洗、统计、透视与探索。每一步都可见、可交互、可撤销。</p>
+        <div class="cover-actions"><button class="cover-primary" id="enterWorkspace"><span data-i18n="startExplore">开始探索</span><b>→</b></button><button class="cover-secondary" id="coverImport"><span>＋</span><span data-i18n="importOwnData">导入我的数据</span></button></div>
+        <div class="cover-proof"><span><b>100%</b><small data-i18n="browserLocal">浏览器本地计算</small></span><i></i><span><b>6</b><small data-i18n="visualTypes">核心图表类型</small></span><i></i><span><b>2</b><small data-i18n="bilingualMode">中英双语模式</small></span></div>
+      </div>
+      <div class="cover-visual" aria-hidden="true">
+        <div class="cover-window">
+          <div class="window-head"><div><span></span><span></span><span></span></div><small>retail_operations.csv</small><b>LIVE</b></div>
+          <div class="window-body">
+            <div class="cover-mini-stats"><span><small>ROWS</small><b>24</b></span><span><small>FIELDS</small><b>9</b></span><span><small>QUALITY</small><b>98%</b></span></div>
+            <div class="cover-chart-title"><span><b data-i18n="revenueTrend">收入趋势</b><small>revenue · 2026</small></span><i>↗ 18.4%</i></div>
+            <div class="cover-chart"><div class="chart-grid-lines"></div><svg viewBox="0 0 520 190" preserveAspectRatio="none"><defs><linearGradient id="coverFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ef6a58" stop-opacity=".3"/><stop offset="1" stop-color="#ef6a58" stop-opacity="0"/></linearGradient></defs><path class="cover-area" d="M0 170 L0 145 L48 152 L96 119 L144 132 L192 82 L240 105 L288 61 L336 93 L384 42 L432 66 L480 22 L520 38 L520 170 Z"/><path class="cover-line" d="M0 145 L48 152 L96 119 L144 132 L192 82 L240 105 L288 61 L336 93 L384 42 L432 66 L480 22 L520 38"/><g class="cover-dots"><circle cx="96" cy="119" r="5"/><circle cx="192" cy="82" r="5"/><circle cx="288" cy="61" r="5"/><circle cx="384" cy="42" r="5"/><circle cx="480" cy="22" r="5"/></g></svg></div>
+            <div class="cover-bars"><span style="--w:78%"><b>Technology</b><i></i><em>121,310</em></span><span style="--w:54%"><b>Furniture</b><i></i><em>84,760</em></span><span style="--w:26%"><b>Office</b><i></i><em>39,330</em></span></div>
+          </div>
+        </div>
+        <div class="float-card float-formula"><span>ƒ</span><div><small>df.assign()</small><b>profit = revenue − cost</b></div></div>
+        <div class="float-card float-quality"><div class="mini-ring"><b>98</b></div><div><small>DATA QUALITY</small><b data-i18n="readyAnalyze">可以开始分析</b></div></div>
+      </div>
+    </div>
+    <div class="cover-footer"><span data-i18n="coverFooter">从原始数据到清晰洞察，只需几次点击</span><div><i></i><i></i><i></i><i></i></div></div>
+  </section>
   <div class="app-shell">
     <aside class="sidebar" aria-label="Primary navigation">
       <div class="brand">

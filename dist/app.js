@@ -26,6 +26,7 @@
       chartsEyebrow: "VISUALIZE · 可视化", chartsTitle: "把数据变成故事", chartsSub: "选择字段和图形，实时探索趋势、比较与关系。", downloadSvg: "下载 SVG", chartType: "图表类型", bar: "柱状", line: "折线", scatter: "散点", pie: "饼图", area: "面积", histogram: "直方图", xAxis: "X 轴 / 类别", yAxis: "Y 轴 / 数值", aggregation: "聚合方式", colorTheme: "配色主题", smartRecommend: "智能推荐",
       quickImport: "QUICK IMPORT · 快速导入", pasteTitle: "粘贴表格或 JSON", pasteHint: "支持从 Excel 复制的制表符数据、CSV 和 JSON 数组。", cancel: "取消", importNow: "立即导入", exportData: "EXPORT · 导出数据", exportTitle: "选择导出格式", csvDesc: "通用表格格式", jsonDesc: "结构化数据",
       shortcutTitle: "键盘快捷键", switchView: "切换分析视图", undoAction: "撤销操作", openFile: "打开文件", focusSearch: "聚焦搜索",
+      coverBrandTag: "可视化数据工坊", coverKicker: "PANDAS · 但更直观", coverTitleA: "让数据开口，", coverTitleB: "无需写代码。", coverDescription: "导入任何表格，用图形完成清洗、统计、透视与探索。每一步都可见、可交互、可撤销。", startExplore: "开始探索", importOwnData: "导入我的数据", browserLocal: "浏览器本地计算", visualTypes: "核心图表类型", bilingualMode: "中英双语模式", revenueTrend: "收入趋势", readyAnalyze: "可以开始分析", coverFooter: "从原始数据到清晰洞察，只需几次点击",
       sampleName: "零售经营示例", rowsUnit: "行", colsUnit: "列", inferred: "已自动识别字段类型", completeRecords: "完整记录", typeSummary: "数值 / 分类 / 日期", dataComplete: "数据完整", noDuplicates: "暂无重复",
       numeric: "数值", categorical: "分类", date: "日期", boolean: "布尔", empty: "空列", records: "条记录", operations: "个操作", noHistory: "尚未执行数据处理操作。\n从左侧选择一个功能开始。",
       page: "第", of: "页，共", filtered: "筛选后", selected: "显示", sortAsc: "升序", sortDesc: "降序", copied: "已复制到剪贴板", imported: "数据导入成功", resetDone: "已恢复原始数据", undone: "已撤销上一步", exported: "已导出",
@@ -49,6 +50,7 @@
       chartsEyebrow: "VISUALIZE · CHARTS", chartsTitle: "Turn data into a story", chartsSub: "Choose fields and marks to explore trends, comparisons and relationships.", downloadSvg: "Download SVG", chartType: "Chart type", bar: "Bar", line: "Line", scatter: "Scatter", pie: "Pie", area: "Area", histogram: "Histogram", xAxis: "X axis / category", yAxis: "Y axis / value", aggregation: "Aggregation", colorTheme: "Color theme", smartRecommend: "Smart suggestion",
       quickImport: "QUICK IMPORT", pasteTitle: "Paste table or JSON", pasteHint: "Accepts tab-separated Excel data, CSV, and JSON arrays.", cancel: "Cancel", importNow: "Import now", exportData: "EXPORT DATA", exportTitle: "Choose an export format", csvDesc: "Universal table format", jsonDesc: "Structured data",
       shortcutTitle: "Keyboard shortcuts", switchView: "Switch analysis view", undoAction: "Undo operation", openFile: "Open file", focusSearch: "Focus search",
+      coverBrandTag: "VISUAL DATA STUDIO", coverKicker: "PANDAS · MADE VISUAL", coverTitleA: "Let your data speak,", coverTitleB: "without the code.", coverDescription: "Import any table and clean, summarize, pivot and explore it visually. Every step is visible, interactive and reversible.", startExplore: "Start exploring", importOwnData: "Import my data", browserLocal: "local browser compute", visualTypes: "core chart types", bilingualMode: "bilingual modes", revenueTrend: "Revenue trend", readyAnalyze: "Ready to analyze", coverFooter: "From raw data to clear insight in just a few clicks",
       sampleName: "Retail operations sample", rowsUnit: "rows", colsUnit: "columns", inferred: "field types inferred", completeRecords: "complete records", typeSummary: "numeric / category / date", dataComplete: "data complete", noDuplicates: "no duplicates",
       numeric: "Numeric", categorical: "Category", date: "Date", boolean: "Boolean", empty: "Empty", records: "records", operations: "operations", noHistory: "No transformations yet.\nChoose an operation to get started.",
       page: "Page", of: "of", filtered: "filtered", selected: "Showing", sortAsc: "ascending", sortDesc: "descending", copied: "Copied to clipboard", imported: "Data imported", resetDone: "Original data restored", undone: "Last operation undone", exported: "Exported",
@@ -132,6 +134,7 @@
     $$('[data-i18n]').forEach(el => el.textContent = t(el.dataset.i18n));
     $$('[data-i18n-placeholder]').forEach(el => el.placeholder = t(el.dataset.i18nPlaceholder));
     $("#langBtn").textContent = state.lang === "zh" ? "EN" : "中";
+    $("#coverLangBtn").textContent = state.lang === "zh" ? "EN" : "中";
     $("#datasetName").textContent = state.name === "零售经营示例" || state.name === "Retail operations sample" ? t("sampleName") : state.name;
     setOptions($("#filterOperator"), [
       ["contains", state.lang==='zh'?"包含":"Contains"], ["eq","="], ["neq","≠"], ["gt",">"], ["gte","≥"], ["lt","<"], ["lte","≤"],
@@ -352,8 +355,10 @@
   function download(content,filename,type){const blob=new Blob([content],{type}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=filename;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
   function toast(message,type=""){const el=document.createElement("div");el.className=`toast ${type}`;el.textContent=message;$("#toastWrap").append(el);setTimeout(()=>el.remove(),3200);}
   function switchView(name){$$('.nav-item').forEach(n=>n.classList.toggle('active',n.dataset.view===name));$$('.view').forEach(v=>v.classList.toggle('active',v.id===`view-${name}`));if(name==="charts")renderStudio();window.scrollTo({top:0,behavior:"smooth"});}
+  function enterCover(immediate=false){const cover=$("#cover");document.body.classList.remove("cover-open");if(immediate){cover.classList.add("hidden");return;}cover.classList.add("exiting");setTimeout(()=>cover.classList.add("hidden"),560);}
 
   function bindEvents() {
+    $("#enterWorkspace").onclick=()=>enterCover(); $("#coverLangBtn").onclick=()=>{state.lang=state.lang==='zh'?'en':'zh';updateAll();}; $("#coverImport").onclick=()=>{enterCover(true);$("#fileInput").click();};
     $$(".nav-item").forEach(btn=>btn.onclick=()=>switchView(btn.dataset.view)); $$('[data-go]').forEach(btn=>btn.onclick=()=>switchView(btn.dataset.go));
     $("#langBtn").onclick=()=>{state.lang=state.lang==='zh'?'en':'zh';updateAll();}; $("#undoBtn").onclick=undo; $("#resetBtn").onclick=reset;
     $("#importBtn").onclick=e=>{e.stopPropagation();$("#importMenu").classList.toggle("open");}; document.addEventListener("click",()=>$("#importMenu").classList.remove("open"));
