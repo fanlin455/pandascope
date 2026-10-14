@@ -34,11 +34,11 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 .cover.exiting { opacity: 0; transform: scale(1.025); pointer-events: none; }.cover.hidden { display: none; }
 .cover-orb { position: absolute; border-radius: 50%; filter: blur(3px); pointer-events: none; }.orb-one { width: 560px; height: 560px; right: -190px; top: -260px; background: radial-gradient(circle at 50% 50%,rgba(85,121,217,.26),rgba(85,121,217,0) 70%); }.orb-two { width: 470px; height: 470px; left: -280px; bottom: -280px; background: radial-gradient(circle at 50% 50%,rgba(239,106,88,.18),rgba(239,106,88,0) 70%); }
 .cover-nav { width: min(1320px,calc(100% - 80px)); height: 100px; margin: auto; display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 2; }
-.cover-brand { display: flex; align-items: center; gap: 12px; }.cover-brand strong,.cover-brand small { display: block; }.cover-brand strong { font-size: 19px; letter-spacing: -.4px; }.cover-brand small { margin-top: 2px; color: #8693aa; font-size: 8px; font-weight: 800; letter-spacing: 1.5px; }
+.cover-brand { display: flex; align-items: center; gap: 12px; }.cover-brand strong,.cover-brand .brand-descriptor { display: block; }.cover-brand strong { font-size: 19px; letter-spacing: -.4px; }.cover-brand .brand-descriptor { margin-top: 3px; color: #9ba8bc; font-size: 10px; font-weight: 700; letter-spacing: .8px; }
 .cover-lang { width: 45px; height: 35px; border: 1px solid rgba(255,255,255,.17); border-radius: 10px; background: rgba(255,255,255,.05); color: #fff; cursor: pointer; font-size: 10px; font-weight: 800; backdrop-filter: blur(8px); }.cover-lang:hover { background: rgba(255,255,255,.1); }
 .cover-grid { width: min(1320px,calc(100% - 80px)); min-height: calc(100svh - 170px); margin: auto; display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: clamp(45px,7vw,110px); position: relative; z-index: 2; padding: 35px 0 70px; }
 .cover-copy { max-width: 590px; }.cover-kicker { display: inline-flex; align-items: center; gap: 9px; color: #f58a79; font-size: 9px; font-weight: 850; letter-spacing: 2px; }.cover-kicker i { width: 26px; height: 1px; background: #f58a79; }
-.cover-copy h1 { margin: 23px 0 22px; font-size: clamp(46px,5vw,78px); line-height: .98; letter-spacing: -4px; }.cover-copy h1 span,.cover-copy h1 em { display: block; }.cover-copy h1 em { margin-top: 8px; color: #f27866; font-style: normal; }
+.cover-copy h1 { margin: 0 0 34px; font-size: clamp(46px,5vw,78px); line-height: .98; letter-spacing: -4px; }.cover-copy h1 span,.cover-copy h1 em { display: block; }.cover-copy h1 em { margin-top: 8px; color: #f27866; font-style: normal; }
 .cover-copy > p { max-width: 520px; margin: 0; color: #a8b2c4; font-size: clamp(14px,1.3vw,17px); line-height: 1.9; }
 .cover-actions { display: flex; align-items: center; gap: 12px; margin-top: 34px; }.cover-primary,.cover-secondary { height: 52px; border-radius: 13px; cursor: pointer; font-weight: 750; transition: .2s ease; }.cover-primary { min-width: 155px; padding: 0 10px 0 20px; display: flex; align-items: center; justify-content: space-between; gap: 18px; border: 0; background: #ef6a58; color: #fff; box-shadow: 0 13px 30px rgba(239,106,88,.28); }.cover-primary b { width: 31px; height: 31px; display: grid; place-items: center; border-radius: 9px; background: rgba(255,255,255,.17); font-size: 17px; }.cover-secondary { padding: 0 18px; display: flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.045); color: #dce2ec; }.cover-primary:hover,.cover-secondary:hover { transform: translateY(-2px); }.cover-secondary:hover { background: rgba(255,255,255,.09); }
 .cover-proof { margin-top: 39px; display: flex; align-items: center; gap: 21px; }.cover-proof > i { width: 1px; height: 30px; background: rgba(255,255,255,.12); }.cover-proof span b,.cover-proof span small { display: block; }.cover-proof span b { font-size: 15px; }.cover-proof span small { margin-top: 3px; color: #738098; font-size: 8px; }
@@ -56,7 +56,22 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 .sidebar { width: var(--sidebar); position: fixed; inset: 0 auto 0 0; z-index: 10; display: flex; flex-direction: column; padding: 28px 18px 22px; background: #17233b; color: #fff; }
 .brand { display: flex; align-items: center; gap: 12px; padding: 0 8px 28px; }
 .brand strong { display: block; font-size: 18px; letter-spacing: -.4px; }
-.brand small { display: block; margin-top: 2px; font-size: 11px; color: #9da7b9; letter-spacing: .8px; }
+.brand .brand-descriptor { display: block; margin-top: 3px; font-size: 10px; font-weight: 700; color: #9da7b9; letter-spacing: .4px; }
+
+/* Clean interface: remove explanatory microcopy while retaining functional labels. */
+.privacy-note small,
+.dataset-title p,
+.menu-item small,
+.page-head p,
+.metric-card small,
+.panel-head p,
+.panel-head > code,
+.op-title code,
+.op-description,
+.analysis-kpis small,
+.history-item small,
+.modal form > p,
+.export-grid small { display: none !important; }
 .brand-mark { width: 36px; height: 36px; border-radius: 11px; display: flex; align-items: end; justify-content: center; gap: 3px; padding: 9px; background: var(--coral); transform: rotate(-3deg); box-shadow: 0 8px 18px rgba(239,106,88,.25); }
 .brand-mark span { width: 4px; border-radius: 4px; background: #fff; }
 .brand-mark span:nth-child(1) { height: 9px; }.brand-mark span:nth-child(2) { height: 17px; }.brand-mark span:nth-child(3) { height: 13px; }

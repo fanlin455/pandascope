@@ -1,4 +1,4 @@
-# PandaVista 数据工坊
+# PandaScope 数据洞察工坊
 
 一个受 Python Pandas 启发的中英双语、可视化驱动数据分析网站。数据在浏览器本地解析和计算，不会上传到服务器。
 

@@ -12,7 +12,7 @@
 
   const I18N = {
     zh: {
-      brandTag: "数据工坊", navOverview: "总览", navTable: "数据表", navTransform: "数据处理", navStats: "统计分析", navCharts: "图表工坊",
+      brandTag: "数据洞察工坊", navOverview: "总览", navTable: "数据表", navTransform: "数据处理", navStats: "统计分析", navCharts: "图表工坊",
       localTitle: "本地计算", localNote: "数据不会上传至服务器", shortcuts: "快捷键", undo: "撤销", reset: "重置", import: "导入数据", export: "导出",
       uploadFile: "上传文件", pasteData: "粘贴数据", pasteDataSub: "表格文本或 JSON", sampleData: "加载示例", sampleDataSub: "零售经营数据",
       overviewEyebrow: "DATA PULSE · 数据脉搏", overviewTitle: "一眼读懂你的数据", overviewSub: "自动概览数据规模、质量、分布与关键关系。", createChart: "创建图表",
@@ -26,7 +26,7 @@
       chartsEyebrow: "VISUALIZE · 可视化", chartsTitle: "把数据变成故事", chartsSub: "选择字段和图形，实时探索趋势、比较与关系。", downloadSvg: "下载 SVG", chartType: "图表类型", bar: "柱状", line: "折线", scatter: "散点", pie: "饼图", area: "面积", histogram: "直方图", xAxis: "X 轴 / 类别", yAxis: "Y 轴 / 数值", aggregation: "聚合方式", colorTheme: "配色主题", smartRecommend: "智能推荐",
       quickImport: "QUICK IMPORT · 快速导入", pasteTitle: "粘贴表格或 JSON", pasteHint: "支持从 Excel 复制的制表符数据、CSV 和 JSON 数组。", cancel: "取消", importNow: "立即导入", exportData: "EXPORT · 导出数据", exportTitle: "选择导出格式", csvDesc: "通用表格格式", jsonDesc: "结构化数据",
       shortcutTitle: "键盘快捷键", switchView: "切换分析视图", undoAction: "撤销操作", openFile: "打开文件", focusSearch: "聚焦搜索",
-      coverBrandTag: "可视化数据工坊", coverKicker: "PANDAS · 但更直观", coverTitleA: "让数据开口，", coverTitleB: "无需写代码。", coverDescription: "导入任何表格，用图形完成清洗、统计、透视与探索。每一步都可见、可交互、可撤销。", startExplore: "开始探索", importOwnData: "导入我的数据", browserLocal: "浏览器本地计算", visualTypes: "核心图表类型", bilingualMode: "中英双语模式", revenueTrend: "收入趋势", readyAnalyze: "可以开始分析", coverFooter: "从原始数据到清晰洞察，只需几次点击",
+      coverBrandTag: "数据洞察工坊", coverKicker: "PANDAS · 但更直观", coverTitleA: "让数据开口，", coverTitleB: "无需写代码。", coverDescription: "导入任何表格，用图形完成清洗、统计、透视与探索。每一步都可见、可交互、可撤销。", startExplore: "开始探索", importOwnData: "导入我的数据", browserLocal: "浏览器本地计算", visualTypes: "核心图表类型", bilingualMode: "中英双语模式", revenueTrend: "收入趋势", readyAnalyze: "可以开始分析", coverFooter: "从原始数据到清晰洞察，只需几次点击",
       sampleName: "零售经营示例", rowsUnit: "行", colsUnit: "列", inferred: "已自动识别字段类型", completeRecords: "完整记录", typeSummary: "数值 / 分类 / 日期", dataComplete: "数据完整", noDuplicates: "暂无重复",
       numeric: "数值", categorical: "分类", date: "日期", boolean: "布尔", empty: "空列", records: "条记录", operations: "个操作", noHistory: "尚未执行数据处理操作。\n从左侧选择一个功能开始。",
       page: "第", of: "页，共", filtered: "筛选后", selected: "显示", sortAsc: "升序", sortDesc: "降序", copied: "已复制到剪贴板", imported: "数据导入成功", resetDone: "已恢复原始数据", undone: "已撤销上一步", exported: "已导出",
@@ -36,7 +36,7 @@
       chartInsightPrefix: "观察：", peakAt: "最高值出现在", strongPositive: "呈明显正相关", strongNegative: "呈明显负相关", balanced: "各组分布相对均衡", recordsShown: "条记录", fileTooLarge: "文件较大，浏览器处理可能需要一些时间", nearSymmetric: "近似对称", rightSkewed: "右偏分布", leftSkewed: "左偏分布", topGroup: "领先分组", versusAverage: "高于整体均值", completeLabel: "完整", uniqueLabel: "唯一"
     },
     en: {
-      brandTag: "DATA STUDIO", navOverview: "Overview", navTable: "Data table", navTransform: "Transform", navStats: "Statistics", navCharts: "Chart studio",
+      brandTag: "VISUAL ANALYTICS", navOverview: "Overview", navTable: "Data table", navTransform: "Transform", navStats: "Statistics", navCharts: "Chart studio",
       localTitle: "Local compute", localNote: "Your data never leaves this device", shortcuts: "Shortcuts", undo: "Undo", reset: "Reset", import: "Import", export: "Export",
       uploadFile: "Upload file", pasteData: "Paste data", pasteDataSub: "Table text or JSON", sampleData: "Load sample", sampleDataSub: "Retail operations data",
       overviewEyebrow: "DATA PULSE · OVERVIEW", overviewTitle: "Understand data at a glance", overviewSub: "An instant view of scale, quality, distribution and key relationships.", createChart: "Create chart",
@@ -50,7 +50,7 @@
       chartsEyebrow: "VISUALIZE · CHARTS", chartsTitle: "Turn data into a story", chartsSub: "Choose fields and marks to explore trends, comparisons and relationships.", downloadSvg: "Download SVG", chartType: "Chart type", bar: "Bar", line: "Line", scatter: "Scatter", pie: "Pie", area: "Area", histogram: "Histogram", xAxis: "X axis / category", yAxis: "Y axis / value", aggregation: "Aggregation", colorTheme: "Color theme", smartRecommend: "Smart suggestion",
       quickImport: "QUICK IMPORT", pasteTitle: "Paste table or JSON", pasteHint: "Accepts tab-separated Excel data, CSV, and JSON arrays.", cancel: "Cancel", importNow: "Import now", exportData: "EXPORT DATA", exportTitle: "Choose an export format", csvDesc: "Universal table format", jsonDesc: "Structured data",
       shortcutTitle: "Keyboard shortcuts", switchView: "Switch analysis view", undoAction: "Undo operation", openFile: "Open file", focusSearch: "Focus search",
-      coverBrandTag: "VISUAL DATA STUDIO", coverKicker: "PANDAS · MADE VISUAL", coverTitleA: "Let your data speak,", coverTitleB: "without the code.", coverDescription: "Import any table and clean, summarize, pivot and explore it visually. Every step is visible, interactive and reversible.", startExplore: "Start exploring", importOwnData: "Import my data", browserLocal: "local browser compute", visualTypes: "core chart types", bilingualMode: "bilingual modes", revenueTrend: "Revenue trend", readyAnalyze: "Ready to analyze", coverFooter: "From raw data to clear insight in just a few clicks",
+      coverBrandTag: "VISUAL ANALYTICS STUDIO", coverKicker: "PANDAS · MADE VISUAL", coverTitleA: "Let your data speak,", coverTitleB: "without the code.", coverDescription: "Import any table and clean, summarize, pivot and explore it visually. Every step is visible, interactive and reversible.", startExplore: "Start exploring", importOwnData: "Import my data", browserLocal: "local browser compute", visualTypes: "core chart types", bilingualMode: "bilingual modes", revenueTrend: "Revenue trend", readyAnalyze: "Ready to analyze", coverFooter: "From raw data to clear insight in just a few clicks",
       sampleName: "Retail operations sample", rowsUnit: "rows", colsUnit: "columns", inferred: "field types inferred", completeRecords: "complete records", typeSummary: "numeric / category / date", dataComplete: "data complete", noDuplicates: "no duplicates",
       numeric: "Numeric", categorical: "Category", date: "Date", boolean: "Boolean", empty: "Empty", records: "records", operations: "operations", noHistory: "No transformations yet.\nChoose an operation to get started.",
       page: "Page", of: "of", filtered: "filtered", selected: "Showing", sortAsc: "ascending", sortDesc: "descending", copied: "Copied to clipboard", imported: "Data imported", resetDone: "Original data restored", undone: "Last operation undone", exported: "Exported",
