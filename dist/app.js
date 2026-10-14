@@ -21,18 +21,18 @@
       tableEyebrow: "DATAFRAME · 数据框", tableTitle: "查看与编辑数据", tableSub: "搜索、排序、分页，双击单元格可直接修改。", addRow: "新增行", copy: "复制", searchRows: "搜索所有字段…", pageSize: "每页",
       transformEyebrow: "WRANGLE · 数据整理", transformTitle: "像 Pandas 一样处理数据", transformSub: "把常用代码操作变成可见、可撤销的交互步骤。", filterRows: "筛选行", value: "值", applyFilter: "应用筛选",
       missingValues: "处理缺失值", fillValue: "填充值", run: "执行", typeConvert: "转换类型", convert: "转换", computedColumn: "计算列", newColumnName: "新列名", formulaExample: "例如：(revenue-cost)/revenue", create: "创建",
-      renameColumn: "重命名列", newName: "新名称", rename: "重命名", duplicatesOp: "移除重复", duplicatesDesc: "删除所有字段完全一致的重复记录。", removeDuplicates: "移除重复行", groupAggregate: "分组聚合", aggregate: "聚合", groupHint: "选择字段，结果将在这里预览", operationHistory: "操作历史", historySub: "每一步都可撤销",
-      statsEyebrow: "DESCRIBE · 统计描述", statsTitle: "发现分布与关系", statsSub: "从描述统计到相关矩阵，用图形捕捉异常与关联。", describeTable: "描述统计", distribution: "分布直方图", boxPlot: "箱线图", outlierHint: "四分位范围与异常值", correlationMatrix: "相关矩阵",
+      renameColumn: "重命名列", newName: "新名称", rename: "重命名", duplicatesOp: "移除重复", duplicatesDesc: "删除所有字段完全一致的重复记录。", removeDuplicates: "移除重复行", columnArrange: "字段排序与管理", sortRows: "排序数据", dropColumn: "删除字段", groupAggregate: "分组聚合", aggregate: "聚合", groupHint: "选择字段，结果将在这里预览", operationHistory: "操作历史", historySub: "每一步都可撤销",
+      statsEyebrow: "DESCRIBE · 统计描述", statsTitle: "发现分布与关系", statsSub: "从描述统计到相关矩阵，用图形捕捉异常与关联。", describeTable: "描述统计", distribution: "分布直方图", boxPlot: "箱线图", outlierHint: "四分位范围与异常值", correlationMatrix: "相关矩阵", validValues: "有效值", uniqueValues: "唯一值", outliers: "异常值", iqrMethod: "IQR 四分位法", skewness: "偏度", columnProfile: "字段健康画像", columnProfileSub: "完整率、唯一率与字段类型一览", groupComparison: "分组对比", pivotAnalysis: "透视交叉分析",
       chartsEyebrow: "VISUALIZE · 可视化", chartsTitle: "把数据变成故事", chartsSub: "选择字段和图形，实时探索趋势、比较与关系。", downloadSvg: "下载 SVG", chartType: "图表类型", bar: "柱状", line: "折线", scatter: "散点", pie: "饼图", area: "面积", histogram: "直方图", xAxis: "X 轴 / 类别", yAxis: "Y 轴 / 数值", aggregation: "聚合方式", colorTheme: "配色主题", smartRecommend: "智能推荐",
       quickImport: "QUICK IMPORT · 快速导入", pasteTitle: "粘贴表格或 JSON", pasteHint: "支持从 Excel 复制的制表符数据、CSV 和 JSON 数组。", cancel: "取消", importNow: "立即导入", exportData: "EXPORT · 导出数据", exportTitle: "选择导出格式", csvDesc: "通用表格格式", jsonDesc: "结构化数据",
       shortcutTitle: "键盘快捷键", switchView: "切换分析视图", undoAction: "撤销操作", openFile: "打开文件", focusSearch: "聚焦搜索",
       sampleName: "零售经营示例", rowsUnit: "行", colsUnit: "列", inferred: "已自动识别字段类型", completeRecords: "完整记录", typeSummary: "数值 / 分类 / 日期", dataComplete: "数据完整", noDuplicates: "暂无重复",
       numeric: "数值", categorical: "分类", date: "日期", boolean: "布尔", empty: "空列", records: "条记录", operations: "个操作", noHistory: "尚未执行数据处理操作。\n从左侧选择一个功能开始。",
       page: "第", of: "页，共", filtered: "筛选后", selected: "显示", sortAsc: "升序", sortDesc: "降序", copied: "已复制到剪贴板", imported: "数据导入成功", resetDone: "已恢复原始数据", undone: "已撤销上一步", exported: "已导出",
-      filterDone: "筛选行", missingDone: "处理缺失值", typeDone: "类型转换", formulaDone: "创建计算列", renameDone: "重命名字段", dedupeDone: "移除重复行", groupDone: "分组聚合", editDone: "编辑单元格", addDone: "新增空行",
+      filterDone: "筛选行", missingDone: "处理缺失值", typeDone: "类型转换", formulaDone: "创建计算列", renameDone: "重命名字段", dedupeDone: "移除重复行", sortDone: "排序数据", dropColumnDone: "删除字段", groupDone: "分组聚合", editDone: "编辑单元格", addDone: "新增空行",
       chooseColumn: "选择字段", allColumns: "全部字段", apply: "应用", useResult: "使用聚合结果", count: "计数", unique: "唯一值", mean: "均值", std: "标准差", min: "最小值", q25: "25%", median: "中位数", q75: "75%", max: "最大值", mode: "众数",
       noNumeric: "需要至少一个数值字段", noCategory: "需要至少一个分类字段", invalidFile: "无法读取该文件，请检查格式", invalidData: "未识别到有效表格数据", invalidFormula: "公式无效；仅支持字段名、数字和 + − × ÷ 括号", nameRequired: "请输入新列名", sameName: "字段名已存在", noChange: "没有可应用的更改", downloadReady: "图表 SVG 已下载", localProcessing: "文件仅在浏览器内解析",
-      chartInsightPrefix: "观察：", peakAt: "最高值出现在", strongPositive: "呈明显正相关", strongNegative: "呈明显负相关", balanced: "各组分布相对均衡", recordsShown: "条记录", fileTooLarge: "文件较大，浏览器处理可能需要一些时间"
+      chartInsightPrefix: "观察：", peakAt: "最高值出现在", strongPositive: "呈明显正相关", strongNegative: "呈明显负相关", balanced: "各组分布相对均衡", recordsShown: "条记录", fileTooLarge: "文件较大，浏览器处理可能需要一些时间", nearSymmetric: "近似对称", rightSkewed: "右偏分布", leftSkewed: "左偏分布", topGroup: "领先分组", versusAverage: "高于整体均值", completeLabel: "完整", uniqueLabel: "唯一"
     },
     en: {
       brandTag: "DATA STUDIO", navOverview: "Overview", navTable: "Data table", navTransform: "Transform", navStats: "Statistics", navCharts: "Chart studio",
@@ -44,18 +44,18 @@
       tableEyebrow: "DATAFRAME · RECORDS", tableTitle: "Inspect and edit data", tableSub: "Search, sort, paginate, and double-click cells to edit.", addRow: "Add row", copy: "Copy", searchRows: "Search all fields…", pageSize: "Rows",
       transformEyebrow: "WRANGLE · TRANSFORM", transformTitle: "Work with data like Pandas", transformSub: "Turn familiar code operations into visible, reversible steps.", filterRows: "Filter rows", value: "Value", applyFilter: "Apply filter",
       missingValues: "Handle missing values", fillValue: "Fill value", run: "Run", typeConvert: "Convert type", convert: "Convert", computedColumn: "Computed column", newColumnName: "New column", formulaExample: "e.g. (revenue-cost)/revenue", create: "Create",
-      renameColumn: "Rename column", newName: "New name", rename: "Rename", duplicatesOp: "Remove duplicates", duplicatesDesc: "Remove records whose values match across every field.", removeDuplicates: "Remove duplicate rows", groupAggregate: "Group & aggregate", aggregate: "Aggregate", groupHint: "Choose fields to preview grouped results", operationHistory: "Operation history", historySub: "Every step is reversible",
-      statsEyebrow: "DESCRIBE · STATISTICS", statsTitle: "Discover distributions & relationships", statsSub: "Use descriptive statistics and correlations to spot patterns and outliers.", describeTable: "Descriptive statistics", distribution: "Distribution histogram", boxPlot: "Box plot", outlierHint: "Quartile range and outliers", correlationMatrix: "Correlation matrix",
+      renameColumn: "Rename column", newName: "New name", rename: "Rename", duplicatesOp: "Remove duplicates", duplicatesDesc: "Remove records whose values match across every field.", removeDuplicates: "Remove duplicate rows", columnArrange: "Sort & manage fields", sortRows: "Sort data", dropColumn: "Drop column", groupAggregate: "Group & aggregate", aggregate: "Aggregate", groupHint: "Choose fields to preview grouped results", operationHistory: "Operation history", historySub: "Every step is reversible",
+      statsEyebrow: "DESCRIBE · STATISTICS", statsTitle: "Discover distributions & relationships", statsSub: "Use descriptive statistics and correlations to spot patterns and outliers.", describeTable: "Descriptive statistics", distribution: "Distribution histogram", boxPlot: "Box plot", outlierHint: "Quartile range and outliers", correlationMatrix: "Correlation matrix", validValues: "Valid values", uniqueValues: "Unique values", outliers: "Outliers", iqrMethod: "IQR method", skewness: "Skewness", columnProfile: "Column health profile", columnProfileSub: "Completeness, uniqueness and inferred types", groupComparison: "Group comparison", pivotAnalysis: "Pivot analysis",
       chartsEyebrow: "VISUALIZE · CHARTS", chartsTitle: "Turn data into a story", chartsSub: "Choose fields and marks to explore trends, comparisons and relationships.", downloadSvg: "Download SVG", chartType: "Chart type", bar: "Bar", line: "Line", scatter: "Scatter", pie: "Pie", area: "Area", histogram: "Histogram", xAxis: "X axis / category", yAxis: "Y axis / value", aggregation: "Aggregation", colorTheme: "Color theme", smartRecommend: "Smart suggestion",
       quickImport: "QUICK IMPORT", pasteTitle: "Paste table or JSON", pasteHint: "Accepts tab-separated Excel data, CSV, and JSON arrays.", cancel: "Cancel", importNow: "Import now", exportData: "EXPORT DATA", exportTitle: "Choose an export format", csvDesc: "Universal table format", jsonDesc: "Structured data",
       shortcutTitle: "Keyboard shortcuts", switchView: "Switch analysis view", undoAction: "Undo operation", openFile: "Open file", focusSearch: "Focus search",
       sampleName: "Retail operations sample", rowsUnit: "rows", colsUnit: "columns", inferred: "field types inferred", completeRecords: "complete records", typeSummary: "numeric / category / date", dataComplete: "data complete", noDuplicates: "no duplicates",
       numeric: "Numeric", categorical: "Category", date: "Date", boolean: "Boolean", empty: "Empty", records: "records", operations: "operations", noHistory: "No transformations yet.\nChoose an operation to get started.",
       page: "Page", of: "of", filtered: "filtered", selected: "Showing", sortAsc: "ascending", sortDesc: "descending", copied: "Copied to clipboard", imported: "Data imported", resetDone: "Original data restored", undone: "Last operation undone", exported: "Exported",
-      filterDone: "Filter rows", missingDone: "Handle missing", typeDone: "Convert type", formulaDone: "Create computed column", renameDone: "Rename column", dedupeDone: "Remove duplicates", groupDone: "Group & aggregate", editDone: "Edit cell", addDone: "Add empty row",
+      filterDone: "Filter rows", missingDone: "Handle missing", typeDone: "Convert type", formulaDone: "Create computed column", renameDone: "Rename column", dedupeDone: "Remove duplicates", sortDone: "Sort data", dropColumnDone: "Drop column", groupDone: "Group & aggregate", editDone: "Edit cell", addDone: "Add empty row",
       chooseColumn: "Choose column", allColumns: "All columns", apply: "Apply", useResult: "Use grouped result", count: "Count", unique: "Unique", mean: "Mean", std: "Std. dev.", min: "Minimum", q25: "25%", median: "Median", q75: "75%", max: "Maximum", mode: "Mode",
       noNumeric: "At least one numeric field is required", noCategory: "At least one category field is required", invalidFile: "Could not read this file; check its format", invalidData: "No valid table data detected", invalidFormula: "Invalid formula; use column names, numbers, + − × ÷ and parentheses", nameRequired: "Enter a new column name", sameName: "That column name already exists", noChange: "No applicable changes", downloadReady: "Chart SVG downloaded", localProcessing: "The file was parsed entirely in your browser",
-      chartInsightPrefix: "Observation: ", peakAt: "the highest value occurs at", strongPositive: "shows a strong positive relationship", strongNegative: "shows a strong negative relationship", balanced: "groups are relatively balanced", recordsShown: "records", fileTooLarge: "This is a large file and may take a moment to process"
+      chartInsightPrefix: "Observation: ", peakAt: "the highest value occurs at", strongPositive: "shows a strong positive relationship", strongNegative: "shows a strong negative relationship", balanced: "groups are relatively balanced", recordsShown: "records", fileTooLarge: "This is a large file and may take a moment to process", nearSymmetric: "near-symmetric", rightSkewed: "right-skewed", leftSkewed: "left-skewed", topGroup: "Leading group", versusAverage: "above overall average", completeLabel: "complete", uniqueLabel: "unique"
     }
   };
 
@@ -160,12 +160,17 @@
 
   function populateControls() {
     const cols = columns(), numeric = cols.filter(c=>state.types[c]==="numeric"), categorical = cols.filter(c=>state.types[c]!=="numeric");
-    ["filterColumn","typeColumn","renameColumn"].forEach(id => setOptions($("#"+id), cols.map(c=>[c,c])));
+    ["filterColumn","typeColumn","renameColumn","arrangeColumn"].forEach(id => setOptions($("#"+id), cols.map(c=>[c,c])));
     setOptions($("#missingColumn"), [["__all__",t("allColumns")],...cols.map(c=>[c,c])]);
     setOptions($("#groupColumn"), cols.map(c=>[c,c])); setOptions($("#aggColumn"), numeric.map(c=>[c,c]));
     setOptions($("#overviewMetric"), numeric.map(c=>[c,c]), $("#overviewMetric").value || numeric.find(c=>/revenue|sales|amount|收入|销售/i.test(c)) || numeric[0]);
     setOptions($("#overviewCategory"), categorical.map(c=>[c,c]), $("#overviewCategory").value || categorical.find(c=>/category|类别|region|区域/i.test(c)) || categorical[0]);
     setOptions($("#statsColumn"), numeric.map(c=>[c,c]), $("#statsColumn").value || numeric[0]);
+    setOptions($("#compareGroup"), categorical.map(c=>[c,c]), $("#compareGroup").value || categorical.find(c=>/category|类别/i.test(c)) || categorical.find(c=>/region|区域/i.test(c)) || categorical[0]);
+    setOptions($("#compareMetric"), numeric.map(c=>[c,c]), $("#compareMetric").value || numeric.find(c=>/revenue|sales|amount|收入|销售/i.test(c)) || numeric[0]);
+    setOptions($("#pivotRow"), categorical.map(c=>[c,c]), $("#pivotRow").value || categorical.find(c=>/region|区域/i.test(c)) || categorical[0]);
+    setOptions($("#pivotColumn"), categorical.map(c=>[c,c]), $("#pivotColumn").value || categorical.find(c=>/category|类别/i.test(c)) || categorical[1] || categorical[0]);
+    setOptions($("#pivotValue"), numeric.map(c=>[c,c]), $("#pivotValue").value || numeric.find(c=>/revenue|sales|amount|收入|销售/i.test(c)) || numeric[0]);
     setOptions($("#chartX"), cols.map(c=>[c,c]), $("#chartX").value || categorical[0] || cols[0]);
     setOptions($("#chartY"), numeric.map(c=>[c,c]), $("#chartY").value || numeric.find(c=>/revenue|sales|amount|收入|销售/i.test(c)) || numeric[0]);
   }
@@ -255,7 +260,38 @@
     const desc=Object.fromEntries(cols.map(c=>[c,describeColumn(c)]));
     $("#describeTable tbody").innerHTML=metrics.map(m=>`<tr><td><b>${t(m)}</b></td>${cols.map(c=>`<td>${fmt(desc[c][m])}</td>`).join("")}</tr>`).join("");
     const selected=$("#statsColumn").value, values=state.data.map(r=>asNumber(r[selected])).filter(v=>v!==null);
-    $("#distributionSub").textContent=selected||t("noNumeric"); renderHistogram($("#histogramChart"),values,palette.sunset[0]); renderBoxPlot($("#boxPlotChart"),values,palette.sunset[1]); renderHeatmap();
+    const valid=state.data.map(r=>r[selected]).filter(v=>!isMissing(v)).length, unique=new Set(state.data.map(r=>r[selected]).filter(v=>!isMissing(v)).map(String)).size;
+    const q1=quantile(values,.25), q3=quantile(values,.75), iqr=q3===null||q1===null?0:q3-q1, outliers=values.filter(v=>v<q1-1.5*iqr||v>q3+1.5*iqr).length;
+    const skew=skewnessValue(values), shape=Math.abs(skew)<.5?t("nearSymmetric"):skew>0?t("rightSkewed"):t("leftSkewed");
+    $("#statValid").textContent=fmt(valid,0); $("#statValidRate").textContent=state.data.length?`${(valid/state.data.length*100).toFixed(1)}% ${t("completeLabel")}`:"—";
+    $("#statUnique").textContent=fmt(unique,0); $("#statUniqueRate").textContent=valid?`${(unique/valid*100).toFixed(1)}% ${t("uniqueLabel")}`:"—";
+    $("#statOutliers").textContent=fmt(outliers,0); $("#statSkewness").textContent=Number.isFinite(skew)?skew.toFixed(2):"—"; $("#statShape").textContent=shape;
+    $("#distributionSub").textContent=selected||t("noNumeric"); renderHistogram($("#histogramChart"),values,palette.sunset[0]); renderBoxPlot($("#boxPlotChart"),values,palette.sunset[1]); renderColumnProfile(); renderComparison(); renderPivot(); renderHeatmap();
+  }
+
+  function skewnessValue(values){
+    if(values.length<3)return 0;const m=mean(values),s=Math.sqrt(values.reduce((a,v)=>a+(v-m)**2,0)/values.length);if(!s)return 0;return values.reduce((a,v)=>a+((v-m)/s)**3,0)/values.length;
+  }
+
+  function renderColumnProfile(){
+    const rows=columns().map(col=>{const vals=state.data.map(r=>r[col]).filter(v=>!isMissing(v)),complete=state.data.length?vals.length/state.data.length*100:0,unique=new Set(vals.map(String)).size;return {col,type:state.types[col],complete,unique};});
+    $("#columnProfile").innerHTML=rows.map(r=>`<div class="profile-row"><span class="profile-name" title="${escapeHTML(r.col)}">${escapeHTML(r.col)}</span><span class="profile-type">${t(r.type)}</span><span class="profile-bar" title="${r.complete.toFixed(1)}%"><i style="width:${r.complete}%"></i></span><span class="profile-stat">${r.complete.toFixed(0)}%</span><span class="profile-stat">${r.unique} ${t("unique")}</span></div>`).join("")||`<div class="history-empty">${t("invalidData")}</div>`;
+  }
+
+  function renderComparison(){
+    const group=$("#compareGroup").value,metric=$("#compareMetric").value,method=$("#compareAgg").value||"sum",el=$("#comparisonChart");
+    if(!group||!metric){emptyViz(el,t("noCategory"));$("#comparisonInsight").textContent="";return;}
+    const data=aggregateData(group,metric,method).slice(0,12);renderBarChart(el,data,palette.ocean);const top=[...data].sort((a,b)=>b.value-a.value)[0],avg=mean(data.map(d=>d.value))||0,pct=avg?((top.value/avg-1)*100):0;
+    $("#comparisonInsight").textContent=`${t("chartInsightPrefix")}${t("topGroup")} “${top?.label||"—"}” · ${fmt(top?.value)}，${pct>=0?"+":""}${pct.toFixed(1)}% ${t("versusAverage")}。`;
+  }
+
+  function renderPivot(){
+    const rowCol=$("#pivotRow").value,colCol=$("#pivotColumn").value,valueCol=$("#pivotValue").value,method=$("#pivotAgg").value||"sum",el=$("#pivotMatrix");
+    if(!rowCol||!colCol||!valueCol||rowCol===colCol){el.innerHTML=`<div class="history-empty">${state.lang==='zh'?'请选择两个不同的分类字段':'Choose two different category fields'}</div>`;return;}
+    const rows=[...new Set(state.data.map(r=>String(r[rowCol]??"(NA)")))].slice(0,12),cols=[...new Set(state.data.map(r=>String(r[colCol]??"(NA)")))].slice(0,12),cells=[];
+    rows.forEach(rv=>cols.forEach(cv=>{const vals=state.data.filter(r=>String(r[rowCol]??"(NA)")===rv&&String(r[colCol]??"(NA)")===cv).map(r=>asNumber(r[valueCol])).filter(v=>v!==null);cells.push({rv,cv,value:aggregate(vals,method)});}));
+    const max=Math.max(1,...cells.map(c=>c.value));let html=`<table class="pivot-table"><thead><tr><th>${escapeHTML(rowCol)} × ${escapeHTML(colCol)}</th>${cols.map(c=>`<th>${escapeHTML(c)}</th>`).join("")}</tr></thead><tbody>`;
+    rows.forEach(rv=>{html+=`<tr><td>${escapeHTML(rv)}</td>`;cols.forEach(cv=>{const cell=cells.find(c=>c.rv===rv&&c.cv===cv),ratio=cell.value/max,alpha=.08+ratio*.58;html+=`<td style="background:rgba(239,106,88,${alpha})" title="${escapeHTML(rv)} × ${escapeHTML(cv)}: ${fmt(cell.value)}">${fmt(cell.value)}</td>`;});html+="</tr>";});el.innerHTML=html+"</tbody></table>";
   }
 
   function renderHeatmap() {
@@ -329,9 +365,9 @@
     $("#tableSearch").oninput=e=>{state.search=e.target.value;state.page=1;renderTable();}; $("#pageSize").onchange=e=>{state.pageSize=Number(e.target.value);state.page=1;renderTable();}; $("#prevPage").onclick=()=>{state.page--;renderTable();}; $("#nextPage").onclick=()=>{state.page++;renderTable();};
     $("#copyTableBtn").onclick=async()=>{await navigator.clipboard.writeText(csvString(filteredRows().map(x=>x.row)));toast(t("copied"),"success");};
     $("#addRowBtn").onclick=()=>mutate("addDone","+1",()=>state.data.push(Object.fromEntries(columns().map(c=>[c,null]))));
-    $("#overviewMetric").onchange=renderOverview; $("#overviewCategory").onchange=renderOverview; $("#statsColumn").onchange=renderStats;
+    $("#overviewMetric").onchange=renderOverview; $("#overviewCategory").onchange=renderOverview; ["statsColumn","compareGroup","compareMetric","compareAgg","pivotRow","pivotColumn","pivotValue","pivotAgg"].forEach(id=>$("#"+id).onchange=renderStats);
     $("#missingAction").onchange=e=>$("#missingCustom").classList.toggle("hidden",e.target.value!=="custom");
-    $("#applyFilter").onclick=applyFilter; $("#applyMissing").onclick=applyMissing; $("#applyType").onclick=applyType; $("#applyFormula").onclick=applyFormula; $("#applyRename").onclick=applyRename; $("#applyDedupe").onclick=applyDedupe; $("#applyGroup").onclick=previewGroup;
+    $("#applyFilter").onclick=applyFilter; $("#applyMissing").onclick=applyMissing; $("#applyType").onclick=applyType; $("#applyFormula").onclick=applyFormula; $("#applyRename").onclick=applyRename; $("#applyDedupe").onclick=applyDedupe; $("#applySort").onclick=applySort; $("#dropColumn").onclick=applyDropColumn; $("#applyGroup").onclick=previewGroup;
     $$(".chart-type").forEach(b=>b.onclick=()=>{$$(".chart-type").forEach(x=>x.classList.remove("active"));b.classList.add("active");state.chartType=b.dataset.chart;renderStudio();});
     ["chartX","chartY","chartAgg","chartColor"].forEach(id=>$("#"+id).onchange=renderStudio); $("#smartChart").onclick=smartChart;
     $("#downloadChart").onclick=()=>{const svg=$("#studioChart svg");if(!svg)return;download(new XMLSerializer().serializeToString(svg),"pandavista-chart.svg","image/svg+xml");toast(t("downloadReady"),"success");};
@@ -345,6 +381,8 @@
   function applyFormula(){const name=$("#formulaName").value.trim(),expr=$("#formulaExpr").value.trim();if(!name)return toast(t("nameRequired"),"error");if(columns().includes(name))return toast(t("sameName"),"error");if(!/^[\w\s.+\-*/%()]+$/.test(expr))return toast(t("invalidFormula"),"error");const identifiers=[...new Set(expr.match(/[A-Za-z_$][\w$]*/g)||[])];if(identifiers.some(id=>!columns().includes(id)))return toast(t("invalidFormula"),"error");try{const fn=new Function(...identifiers,`"use strict"; return (${expr});`);const values=state.data.map(r=>fn(...identifiers.map(c=>asNumber(r[c])??r[c])));if(values.some(v=>typeof v==='function'||typeof v==='object'))throw Error();mutate("formulaDone",`${name} = ${expr}`,()=>state.data.forEach((r,i)=>r[name]=Number.isFinite(values[i])?values[i]:values[i]??null));}catch{return toast(t("invalidFormula"),"error");}}
   function applyRename(){const old=$("#renameColumn").value,name=$("#renameValue").value.trim();if(!name)return toast(t("nameRequired"),"error");if(columns().includes(name))return toast(t("sameName"),"error");mutate("renameDone",`${old} → ${name}`,()=>state.data=state.data.map(r=>{const n={};Object.keys(r).forEach(k=>n[k===old?name:k]=r[k]);return n;}));}
   function applyDedupe(){const seen=new Set(),next=state.data.filter(r=>{const k=JSON.stringify(r);if(seen.has(k))return false;seen.add(k);return true;});const removed=state.data.length-next.length;if(!removed)return toast(t("noChange"));mutate("dedupeDone",`−${removed}`,()=>state.data=next);}
+  function applySort(){const col=$("#arrangeColumn").value,direction=$("#sortDirection").value;if(!col)return toast(t("noChange"));mutate("sortDone",`${col} · ${direction}`,()=>state.data=[...state.data].sort((a,b)=>compare(a[col],b[col])*(direction==='desc'?-1:1)));}
+  function applyDropColumn(){const col=$("#arrangeColumn").value;if(!col||columns().length<=1)return toast(t("noChange"),"error");mutate("dropColumnDone",col,()=>state.data=state.data.map(row=>{const next={...row};delete next[col];return next;}));}
   function previewGroup(){const group=$("#groupColumn").value,col=$("#aggColumn").value,method=$("#aggMethod").value;if(!group||(!col&&method!=='count'))return toast(t("noNumeric"),"error");const result=aggregateData(group,col,method).map(d=>({[group]:d.label,[`${method}_${col}`]:d.value}));state.groupResult=result;const keys=Object.keys(result[0]||{});$("#groupPreview").classList.remove("empty-result");$("#groupPreview").innerHTML=`<table class="mini-table"><thead><tr>${keys.map(k=>`<th>${escapeHTML(k)}</th>`).join('')}</tr></thead><tbody>${result.slice(0,10).map(r=>`<tr>${keys.map(k=>`<td>${fmt(r[k])}</td>`).join('')}</tr>`).join('')}</tbody></table><button id="useGroupResult" class="btn primary wide">${t("useResult")}</button>`;$("#useGroupResult").onclick=()=>mutate("groupDone",`${group} · ${method}(${col})`,()=>state.data=structuredClone(state.groupResult));}
   function smartChart(){const nums=columns().filter(c=>state.types[c]==='numeric'),cats=columns().filter(c=>state.types[c]!=='numeric');if(!nums.length)return toast(t("noNumeric"),"error");const date=columns().find(c=>state.types[c]==='date');state.chartType=date?'line':cats.length?'bar':'scatter';$$('.chart-type').forEach(b=>b.classList.toggle('active',b.dataset.chart===state.chartType));$("#chartX").value=date||cats[0]||nums[0];$("#chartY").value=nums.find(c=>c!==$("#chartX").value)||nums[0];renderStudio();}
 
