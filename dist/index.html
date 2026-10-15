@@ -179,7 +179,16 @@
               <div id="groupPreview" class="inline-result empty-result" data-i18n="groupHint">选择字段，结果将在这里预览</div>
             </article>
           </div>
-          <aside class="history-panel panel"><div class="panel-head"><div><h3 data-i18n="operationHistory">操作历史</h3><p data-i18n="historySub">每一步都可撤销</p></div></div><div id="historyList" class="history-list"></div></aside>
+          <aside class="transform-sidebar">
+            <section class="result-panel panel">
+              <div class="panel-head"><div><h3 data-i18n="resultPreview">处理结果</h3><p data-i18n="resultPreviewSub">每次操作后即时显示当前数据</p></div><span class="live-dot" aria-hidden="true"></span></div>
+              <div id="transformResultNotice" class="result-notice"></div>
+              <div id="transformResultMeta" class="result-meta"></div>
+              <div class="result-table-wrap"><table id="transformResultTable" class="mini-table"><thead></thead><tbody></tbody></table></div>
+              <button class="btn soft wide" data-go="table" data-i18n="viewFullTable">查看完整数据表</button>
+            </section>
+            <section class="history-panel panel"><div class="panel-head"><div><h3 data-i18n="operationHistory">操作历史</h3><p data-i18n="historySub">每一步都可撤销</p></div></div><div id="historyList" class="history-list"></div></section>
+          </aside>
         </div>
       </section>
 
